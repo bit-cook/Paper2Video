@@ -175,7 +175,8 @@ def generate(model: Literal["Qwen2.5", "gpt"]):
     progress = tqdm(total=len(folders))
 
     def process_folder(pdf_folder, model, processor):
-        source_text = open(f"{pdf_folder}/source.md").read()
+        with open(f"{pdf_folder}/source.md") as f:
+            source_text = f.read()
         bird_eye = json.load(open(f"{pdf_folder}/refined_doc.json"))
         images = json.load(open(f"{pdf_folder}/image_caption.json")).keys()
         output_dir = f"{pdf_folder}/docpres/{llm_name}"

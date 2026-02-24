@@ -151,7 +151,7 @@ class MsWordDocumentBackend(DeclarativeDocumentBackend):
     def get_level(self) -> int:
         """Return the first None index."""
         for k, v in self.parents.items():
-            if k >= 0 and v == None:
+            if k >= 0 and v is None:
                 return k
         return 0
 

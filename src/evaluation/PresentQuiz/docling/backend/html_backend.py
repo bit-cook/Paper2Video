@@ -158,9 +158,9 @@ class HTMLDocumentBackend(DeclarativeDocumentBackend):
                     try:
                         # Recursively get the child's text content
                         result.extend(self.extract_text_recursively(child))
-                    except:
+                    except Exception:
                         pass
-            except:
+            except Exception:
                 _log.warn("item has no children")
                 pass
 

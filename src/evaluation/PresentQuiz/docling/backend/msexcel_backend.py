@@ -337,7 +337,7 @@ class MsExcelDocumentBackend(DeclarativeDocumentBackend):
                     image=ImageRef.from_pil(image=pil_image, dpi=72),
                     caption=None,
                 )
-            except:
+            except Exception:
                 _log.error("could not extract the image from excel sheets")
 
         """

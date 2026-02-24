@@ -273,14 +273,14 @@ class AsciiDocBackend(DeclarativeDocumentBackend):
 
     def _get_current_level(self, parents):
         for k, v in parents.items():
-            if v == None and k > 0:
+            if v is None and k > 0:
                 return k - 1
 
         return 0
 
     def _get_current_parent(self, parents):
         for k, v in parents.items():
-            if v == None and k > 0:
+            if v is None and k > 0:
                 return parents[k - 1]
 
         return None
@@ -328,7 +328,7 @@ class AsciiDocBackend(DeclarativeDocumentBackend):
                     "marker": marker,
                     "text": text.strip(),
                     "numbered": False,
-                    "indent": 0 if indent == None else len(indent),
+                    "indent": 0 if indent is None else len(indent),
                 }
             else:
                 return {
@@ -336,7 +336,7 @@ class AsciiDocBackend(DeclarativeDocumentBackend):
                     "marker": marker,
                     "text": text.strip(),
                     "numbered": True,
-                    "indent": 0 if indent == None else len(indent),
+                    "indent": 0 if indent is None else len(indent),
                 }
         else:
             # Fallback if no match
